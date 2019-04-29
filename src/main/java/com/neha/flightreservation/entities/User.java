@@ -51,12 +51,9 @@ public class User extends AbstractEntity{
 		this.password = password;
 	}
 
-	@Override
-	public String toString() {
-		return "User [firstName=" + firstName + ", lastName=" + lastName + ", email=" + email + ", password=" + password
-				+ "]";
-	}
-
+	
+	@ManyToMany
+	@JoinTable(name="user_role", joinColumns=@JoinColumn(name="user_id"), inverseJoinColumns= @JoinColumn(name="role_id"))
 	public Set<Role> getRoles() {
 		return roles;
 	}
@@ -65,5 +62,10 @@ public class User extends AbstractEntity{
 		this.roles = roles;
 	}
 
+	@Override
+	public String toString() {
+		return "User [firstName=" + firstName + ", lastName=" + lastName + ", email=" + email + ", password=" + password
+				+ "]";
+	}
 
 }
