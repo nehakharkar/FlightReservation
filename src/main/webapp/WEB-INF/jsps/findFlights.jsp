@@ -23,9 +23,7 @@
 </div>
 
 <div class="bs-example">
-    <form action="findFlights" method="post">
-        <div class="form-group">
-         
+    <form action="findFlights" method="post">         
         <div class="form-group">
             <label for="inputFrom">From </label>
             <input type="text" class="form-control" id="from" name="from" required>
@@ -37,8 +35,8 @@
             <div class="invalid-feedback">Please enter a valid location.</div>
         </div>
         <div class="form-group">
-            <label for="inputdepature">Departure Date</label>
-            <input type="text" class="form-control" id="departureDate" name="departureDate" placeholder="Password" required>
+            <label for="inputdepature">Departure Date (YYYY-MM-DD format)</label>
+            <input type="text" class="form-control" id="departureDate" name="departureDate"  required>
             <div class="invalid-feedback">Please enter your Departure Date to continue.</div>
         </div>
        
