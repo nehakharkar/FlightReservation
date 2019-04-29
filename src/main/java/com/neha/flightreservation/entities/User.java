@@ -1,5 +1,7 @@
 package com.neha.flightreservation.entities;
 
+import java.util.Set;
+
 import javax.persistence.Entity;
 
 
@@ -10,6 +12,7 @@ public class User extends AbstractEntity{
 	private String lastName;
 	private String email;
 	private String password;
+	private Set<Role> roles;
 
 	public String getFirstName() {
 		return firstName;
@@ -47,6 +50,14 @@ public class User extends AbstractEntity{
 	public String toString() {
 		return "User [firstName=" + firstName + ", lastName=" + lastName + ", email=" + email + ", password=" + password
 				+ "]";
+	}
+
+	public Set<Role> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(Set<Role> roles) {
+		this.roles = roles;
 	}
 
 
