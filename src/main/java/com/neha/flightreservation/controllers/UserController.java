@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.neha.flightreservation.entities.User;
 import com.neha.flightreservation.repos.UserRepository;
+import com.neha.flightreservation.services.SecurityService;
 
 @Controller
 public class UserController {
@@ -23,7 +24,8 @@ public class UserController {
 	
 	@Autowired
 	private BCryptPasswordEncoder encoder;
-	
+	@Autowired
+	private SecurityService securityService;
 	
 	@RequestMapping("/showReg")
 	public String showRegistrationPage() {
@@ -47,9 +49,10 @@ public class UserController {
 	}
 	@RequestMapping(value="/login",method= RequestMethod.POST )
 	public String login(@RequestParam("email")String email,@RequestParam("password")String password, ModelMap modelMap) {
+		
+		boolean loginReponse = securityService.login(email,password);
 		LOGGER.info("Inside login and email is:  "+ email);		
-		User user = userRepository.findByEmail(email);
-		if(user.getPassword().equals(password))
+		if(loginReponse)
 			return "findFlights";
 		else
 			modelMap.addAttribute("msg","Invalid user name or password. Please try again!");
