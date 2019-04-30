@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.neha.flightreservation.dto.ReservationUpdateRequest;
 import com.neha.flightreservation.entities.Reservation;
 import com.neha.flightreservation.repos.ReservationRepository;
-import com.neha.flightreservation.util.PDFGenerator;
+
 
 @RestController
 @CrossOrigin
